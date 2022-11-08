@@ -1,0 +1,4 @@
+* @babayaga-creator
+*.js @babayaga-creator
+*.yml @babayaga-creator
+/public/ @göt
