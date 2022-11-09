@@ -4,6 +4,9 @@ on:
     branches: [develop, main]
   push:
     branches: [develop, main]
+    tags:
+    - '*'
+
 
 jobs:
   build:
@@ -50,7 +53,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: Latest release
-          tag: 1.0.0
+          generateReleaseNotes: true
+          artifacts: coverage
 
       - name: Deploy to Staging
         if: github.event_name == 'push'
