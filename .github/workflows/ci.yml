@@ -51,7 +51,7 @@ jobs:
 
       - name: Deploy to Staging
         if: github.event_name == 'push'
-        run: npx surge --project ./build --domain arifoo.surge.sh
+        run: npx surge --project ./build --domain arifoo.surge.se
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN}}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN}}
