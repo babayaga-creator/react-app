@@ -42,12 +42,12 @@ jobs:
         with:
           name: build
           path: build
-      - name: Create a Release 
+      - name: Create a Release
         if: github.event_name == 'push' && github.ref == 'reft/heads/main'
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          body: Latest release 
+          body: Latest release
 
       - name: Deploy to Staging
         if: github.event_name == 'push'
