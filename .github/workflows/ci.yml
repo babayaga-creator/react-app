@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [develop]
   push:
-    branches: [develop]  
+    branches: [develop]
 
 jobs:
   build:
@@ -25,11 +25,11 @@ jobs:
       #For push requests
       - name: Build projekt
         if: github.event_name == 'push'
-        run: npm run build 
+        run: npm run build
 
-      - name: Deploy to Staging 
+      - name: Deploy to Staging
         if: github.event_name == 'push'
-        run: npx surge --project ./build --domain arifoo.surge.sh 
+        run: npx surge --project ./build --domain arifoo.surge.sh
         env:
-          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN}} 
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN}} 
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN}}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN}}
