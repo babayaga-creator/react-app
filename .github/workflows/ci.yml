@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v3
@@ -48,6 +50,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: Latest release
+          tag: feat som feature
 
       - name: Deploy to Staging
         if: github.event_name == 'push'
