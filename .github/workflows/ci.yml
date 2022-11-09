@@ -58,7 +58,6 @@ jobs:
           generateReleaseNotes: true
           artifacts: coverage/clover.xml
           tag: 2.0.0
-          
 
       - name: Deploy to Staging
         if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
