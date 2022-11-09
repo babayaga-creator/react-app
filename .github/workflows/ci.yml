@@ -57,7 +57,7 @@ jobs:
           body: Latest release
           generateReleaseNotes: true
           artifacts: coverage
-          tag: 1.0.1
+          tag: 1.0.2
 
       - name: Deploy to Staging
         if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
