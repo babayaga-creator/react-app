@@ -50,7 +50,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: Latest release
-          tag: feat som feature
+          tag: 1.0.0
 
       - name: Deploy to Staging
         if: github.event_name == 'push'
