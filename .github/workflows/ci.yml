@@ -65,4 +65,4 @@ jobs:
 
       - name: Deploy To Production
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npx surge --project ./build --domain arifoo.dev.sh
+        run: npx surge --project ./build --domain arifoo.surge.sh
