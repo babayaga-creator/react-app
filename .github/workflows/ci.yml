@@ -43,7 +43,7 @@ jobs:
           name: build
           path: build
       - name: Create a Release
-        if: github.event_name == 'push' && github.ref == 'reft/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
