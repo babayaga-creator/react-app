@@ -13,6 +13,7 @@ jobs:
     env:
       SURGE_LOGIN: ${{ secrets.SURGE_LOGIN}}
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN}}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
     permissions:
       contents: write
 
@@ -51,18 +52,12 @@ jobs:
           path: build
       - name: Create a Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: Latest release
-          generateReleaseNotes: true
-          artifacts: coverage/clover.xml
-          tag: 2.0.0
+        run: npx semantic-release
 
       - name: Deploy to Staging
         if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
-        run: npx surge --project ./build --domain arifoo.surge.sh
+        run: npx surge --project ./build --domain arifoostage.surge.sh
 
       - name: Deploy To Production
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npx surge --project ./build --domain arifoo.surge.sh
+        run: npx surge --project ./build --domain arifoopro.surge.sh
